@@ -1,4 +1,6 @@
-const common = require("./common.js");
+// const common = require("./common.js");
+const common = global.require("/sdcard/脚本/dypublish/common/common.js");
+
 const { swipeRandom, waitTime, openApp, random, xs_控件匹配是否存在, xs_控件是否存在, xs_控件点击, noResponse, findNodeXY } = require("./common.js");
 var douyinUtils = {};
 douyinUtils.appName = "抖音";

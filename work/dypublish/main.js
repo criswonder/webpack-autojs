@@ -1,5 +1,21 @@
+// const { closeFlashWindow } = global.require('douyinUtils.js');
+// const { closeFlashWindow } = require("./common/douyinUtils.js");
+
+const { forceStopApp } = require("/sdcard/脚本/dypublish/common/common");
+
+// const { closeFlashWindow } = global.require("/sdcard/脚本/dypublish/common/douyinUtils.js");
+const { closeFlashWindow } = global.require("/sdcard/脚本/dypublish/common/douyinUtils.js");
+
 // 导入 AutoJS 的相关模块
 var packageName = "com.ss.android.ugc.aweme"; // 视频App的包名
+
+// 需要root
+// forceStopApp(packageName);
+// console.log("after forceStopApp");
+
+closeFlashWindow();
+
+console.log("打开视频App4");
 
 // 打开视频App
 launch(packageName);

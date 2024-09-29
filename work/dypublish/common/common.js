@@ -266,12 +266,12 @@ common.stringIsBlank = function (string) {
  * 
  * @param {*} status  1在线(空闲)，0离线,3停用,-1删除,4未激活,2任务中
  */
-common.updateDeviceStatus = function (status = status || 1) {
-    var qurl = common.origin + "/device/updateStatusByImei?imei" + this.getDeviceCode() + "&status=" + status;
-    var r = http.get(qurl);
-    var msg = r.body.json();
-    console.log(msg);
-}
+// common.updateDeviceStatus = function (status = status || 1) {
+//     var qurl = common.origin + "/device/updateStatusByImei?imei" + this.getDeviceCode() + "&status=" + status;
+//     var r = http.get(qurl);
+//     var msg = r.body.json();
+//     console.log(msg);
+// }
 common.forceStopApp = function (e) {
     try {
         shell("am force-stop " + e, true)
