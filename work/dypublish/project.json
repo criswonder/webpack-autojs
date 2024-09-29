@@ -1,0 +1,13 @@
+{
+    "name": "dypublish",
+    "main": "main.js",
+    "ignore": [
+        "build"
+    ],
+    "launchConfig": {
+        "hideLogs": true
+    },
+    "packageName": "com.dypublish.shell",
+    "versionName": "1.5.0",
+    "versionCode": 5
+}
