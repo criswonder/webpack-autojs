@@ -13,32 +13,85 @@ var packageName = "com.ss.android.ugc.aweme"; // 视频App的包名
 // forceStopApp(packageName);
 // console.log("after forceStopApp");
 
-closeFlashWindow();
-
-console.log("打开视频App4");
+// closeFlashWindow();
+// console.log("after closeFlashWindow");
 
 // 打开视频App
+console.log("launch->"+packageName);
 launch(packageName);
 
 // 等待视频App加载完成
+console.log("waitForPackage->"+packageName);
 waitForPackage(packageName);
 
 // 自动刷视频
-autoSwipe();
+console.log("before publish");
+publish();
+
+console.log("after publish");
+
+
+function findByDescAndClickAtBoundsCenter(desc) {
+  try {
+    var find = descContains(desc).findOne();
+    log("enter->findByDescAndClickAtBoundsCenter desc:"+desc+",bounds="+find.bounds())
+    click(find.bounds().centerX(), find.bounds().centerY())
+  } catch (error) {
+    log("findByDescAndClickAtBoundsCenter->error:"+error)
+  }
+}
+
+function findByTextAndClickAtBoundsCenter(text) {
+  try {
+    var find = textContains(text).findOne();
+    log("enter->findByTextAndClickAtBoundsCenter desc:"+text+",bounds="+find.bounds())
+    click(find.bounds().centerX(), find.bounds().centerY())
+  } catch (error) {
+    log("findByTextAndClickAtBoundsCenter->error:"+error)
+  }
+}
 
 // 自动刷视频函数
-function autoSwipe() {
-  while (true) {
-    // 模拟向下滑动操作
-    swipe(
-      device.width / 2,
-      device.height * 0.8,
-      device.width / 2,
-      device.height * 0.2,
-      1000
-    );
+function publish() {
 
-    // 等待一段时间，模拟观看视频
-    sleep(5000); // 可以根据实际情况调整等待时间
+  try {
+    log("enter publish")
+    // var publishBtn = className("ImageView").find().length();
+    // log(publishBtn)
+    findByDescAndClickAtBoundsCenter("拍摄")
+
+    // sleep(1000)
+
+    findByDescAndClickAtBoundsCenter("相册")
+
+    var count = id("com.ss.android.ugc.aweme:id/root_view").findOne().childCount();
+    log("count->"+count)
+
+    var find = id("com.ss.android.ugc.aweme:id/root_view").findOne().children()
+    .forEach(function(child){
+      log("className->"+child.className());
+    });
+
+    var findClickItem = id("com.ss.android.ugc.aweme:id/root_view").findOne().children().find(clickable());
+
+    log("findClickItem->"+findClickItem)
+    // if(findClickItem.nonEmpty()){
+    //   log("find first"+findClickItem[0])
+    // }
+    var first = findClickItem.get(0);
+    click(first.bounds().centerX(), first.bounds().centerY())
+    sleep(1000)
+
+    log("begin click 下一步")
+    findByTextAndClickAtBoundsCenter("下一步")
+
+    sleep(1000)
+    log("begin click 编辑页面->下一步")
+    findByTextAndClickAtBoundsCenter("下一步")
+  
+    log("1331")
+  } catch (error) {
+    log(error)
   }
+
 }
