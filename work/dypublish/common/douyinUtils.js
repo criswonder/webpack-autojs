@@ -8,18 +8,22 @@ douyinUtils.packageName = 'com.ss.android.ugc.aweme';
 /**关闭屏幕上“以后再说”对话框*/
 douyinUtils.closeFlashWindow = function () {
     try {
+        log("closeFlashWindow1");
         if (xs_控件是否存在("text", "好的")) {
             log("检测到---抖音个人信息保护指引");
             xs_控件点击("text", "好的");//抖音个人信息保护指引
         }
+        log("closeFlashWindow2");
         if (xs_控件是否存在("text", "我知道了")) {
             log("检测到---青少年模式");
             xs_控件点击("text", "我知道了");//青少年模式
         }
+        log("closeFlashWindow3");
         if (xs_控件是否存在("text", "以后再说")) {
             log("检测到---抖音更新界面");
             xs_控件点击("text", "以后再说");//抖音更新界面
         }
+        log("closeFlashWindow4");
         if (xs_控件匹配是否存在("text", "发现通讯录好友")) {
             log("检测到---抖音发现通讯录界面");
             if (xs_控件匹配是否存在("text", "取消")) {
@@ -29,23 +33,31 @@ douyinUtils.closeFlashWindow = function () {
                 xs_控件点击("text", "暂时不要");//抖音发现通讯录界面
             }
         }
+        log("closeFlashWindow5");
         if (xs_控件是否存在("text", "知道了")) {
             log("检测到---青少年模式");
             xs_控件点击("text", "知道了");//青少年模式
         }
         //TODO
+        log("closeFlashWindow6");
         if (xs_控件是否存在("text", "刷新")) {
             log("检测到---网络异常");
             xs_控件点击("text", "刷新");//网络异常
         }
+
+        log("closeFlashWindow7");
         if (xs_控件是否存在("text", "挂断")) {
             log("有视频电话打进来");
             xs_控件点击("text", "挂断");//不接视频电话
         }
+
+        log("closeFlashWindow8");
         if (xs_控件是否存在("text", "取消") && xs_控件是否存在("text", "等待对方接听")) {
             log("拨打出视频电话");
             xs_控件点击("text", "取消");//打视频电话
         }
+
+        log("closeFlashWindow9");
         if (xs_控件是否存在("text", "好友推荐")) {
             log("检测到---好友推荐");
             back();

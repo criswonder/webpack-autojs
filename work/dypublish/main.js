@@ -1,20 +1,21 @@
 // const { closeFlashWindow } = global.require('douyinUtils.js');
 // const { closeFlashWindow } = require("./common/douyinUtils.js");
+let { start_app, click_item, set_volume, wait_befor_click } = require('/sdcard/脚本/dypublish/common/lib.js');
 
-const { forceStopApp } = require("/sdcard/脚本/dypublish/common/common");
+// const { forceStopApp } = require("/sdcard/脚本/dypublish/common/common");
 
-// const { closeFlashWindow } = global.require("/sdcard/脚本/dypublish/common/douyinUtils.js");
 const { closeFlashWindow } = global.require("/sdcard/脚本/dypublish/common/douyinUtils.js");
+// const { closeFlashWindow } = global.require("/sdcard/脚本/dypublish/common/douyinUtils.js");
 
 // 导入 AutoJS 的相关模块
 var packageName = "com.ss.android.ugc.aweme"; // 视频App的包名
 
-// 需要root
+// // 需要root
 // forceStopApp(packageName);
 // console.log("after forceStopApp");
 
-// closeFlashWindow();
-// console.log("after closeFlashWindow");
+closeFlashWindow();
+console.log("after closeFlashWindow");
 
 // 打开视频App
 console.log("launch->"+packageName);
@@ -26,7 +27,7 @@ waitForPackage(packageName);
 
 // 自动刷视频
 console.log("before publish");
-publish();
+// publish();
 
 console.log("after publish");
 
@@ -95,3 +96,5 @@ function publish() {
   }
 
 }
+
+start_app(publish, '抖音', '发布作品', true)
